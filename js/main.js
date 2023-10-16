@@ -18,8 +18,6 @@ $(document).ready(function() {
         var nIndex = index+1;
        console.log(liestext = $(this[index+1]).text());   
     });
-      
-
     });
 
 });
