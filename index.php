@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="js/main.js"></script> 
 <form method="post" >
             <select name="result">
               <option value="normal">normal</option>
@@ -121,15 +123,15 @@ $inits ->get();
   так как это приводит к выборке огромного количества не нужных столбцов из
   таблиц которые объединябтся.
 </p>
-3 . 
+3 <p>Создать скрипт, который в папке /datafiles найдет все файлы</p>   
 <?php
+function sort_file_name() {
 // адрес сераера
 $url = 'localhost';
 // путь до папки с фалами
 $dir = __DIR__ . '\datafiles'; 
 // считать всё что усть в папке
    $files = scandir($dir);
-  //  var_dump($files);
   //  шаблон для поиска по назва
   $patern= "(\w{3,25}.txt)";
   // массив для результатов
@@ -138,16 +140,31 @@ $dir = __DIR__ . '\datafiles';
     // поиск по егулярному выражению
     preg_match($patern, $file, $res);
     // убираю в массив полученное значение
-    array_push($arr, $res[0]);
+    array_push($arr, $res );
       }
-   vqr_dump($arr);   
   //  сортировка полученного массива   
-  array_multisort($arr);
+  sort($arr);
   // отображение полученного результата
-  var_dump($arr);
+  return ($arr);
+    }
+    // проверка работы функции
+    var_dump(sort_file_name());
 
 ?>
-4 . 
+<p>4. Написать скрипт закачивания страницы www.bills.ru</p>
+ <?php
+
+$lines = file('https://www.bills.ru/');
+   var_dump($lines);
+?>
+<div class="first-div">
+  <ul style="LIST-STYLE-TYPE:NONE">
+    <li><button>1</button></li>
+    <li><button>2</button></li>
+    <li><button>3</button></li>
+  </ul>
+</div>
+
 </body>
 </html>
 <?php
